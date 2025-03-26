@@ -1,0 +1,54 @@
+spring:
+  cloud:
+    openfeign:
+      oauth2:
+        enabled: true
+
+      micrometer:
+        enabled: true
+
+      circuitbreaker:
+        enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          user-service:
+            authorization-grant-type: client_credentials
+            client-id: order-service
+            client-secret: q1w2e3r4
+            scope: CHECK, UPDATE
+            provider: spring
+
+          product-service:
+            authorization-grant-type: client_credentials
+            client-id: order-service
+            client-secret: q1w2e3r4
+            scope: CHECK, UPDATE
+            provider: spring
+
+      provider:
+        spring:
+          issuer-uri: http://${HOST_IP_ADDRESS:localhost}:9000
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-spring-cloud.c5igmqq2495t.ap-southeast-1.rds.amazonaws.com:3306/order_service
+    username: seminar
+    password: seminar01
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+
+resilience4j:
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 5s

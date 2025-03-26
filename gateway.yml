@@ -1,0 +1,44 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-status-check
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/status-check
+            - Method=GET
+          #                - Header=Authorization, Bearer (.*)
+          filters:
+            #                - RemoveRequestHeader=Cookie
+            - RewritePath=/product-service/(?<segment>.*), /${segment}
+        #                - AuthorizationHeaderFilter
+        - id: product-search
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/
+            - Method=GET
+          #                - Header=Authorization, Bearer (.*)
+          filters:
+            #                - RemoveRequestHeader=Cookie
+            - RewritePath=/product-service/(?<segment>.*), /${segment}
+        #                - AuthorizationHeaderFilter
+        - id: product-create
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/
+            - Method=POST
+          #                - Header=Authorization, Bearer (.*)
+          filters:
+            #                - RemoveRequestHeader=Cookie
+            - RewritePath=/product-service/(?<segment>.*), /${segment}
+        #                - AuthorizationHeaderFilter
+        - id: product-update
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/
+            - Method=PUT
+          #                - Header=Authorization, Bearer (.*)
+          filters:
+            #                - RemoveRequestHeader=Cookie
+            - RewritePath=/product-service/(?<segment>.*), /${segment}
+  #                - AuthorizationHeaderFilter
