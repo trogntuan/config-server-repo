@@ -30,7 +30,7 @@ spring:
 
         provider:
           spring:
-            issuer-uri: http://${HOST_IP_ADDRESS:localhost}:9000
+            issuer-uri: http://${HOST_IP_ADDRESS:host.docker.internal}:9000
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
