@@ -4,24 +4,18 @@ spring:
       routes:
         - id: product-service-api
           uri: lb://product-service
-          predicates:
-            - Path=/product-service/(?<segment>.*)
-            - Method=GET,POST,PUT,DELETE
+          predicates: Path=/product-service/**
           filters:
-            - RewritePath=/product-service/(?<segment>.*), /${segment}
+            - StripPrefix=1
 
         - id: order-service-api
           uri: lb://order-service
-          predicates:
-            - Path=/order-service/(?<segment>.*)
-            - Method=POST,GET,PUT,DELETE
+          predicates: Path=/order-service/**
           filters:
-            - RewritePath=/order-service/(?<segment>.*), /${segment}
+            - StripPrefix=1
 
         - id: user-service-api
           uri: lb://user-service
-          predicates:
-            - Path=/user-service/(?<segment>.*)
-            - Method=POST,GET,PUT,DELETE
+          predicates: Path=/user-service/**
           filters:
-            - RewritePath=/user-service/(?<segment>.*), /${segment}
+            - StripPrefix=1
