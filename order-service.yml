@@ -51,7 +51,7 @@ resilience4j:
   timelimiter:
     configs:
       default:
-        timeout-duration: 5s
+        timeout-duration: 30s
 
 ipt:
-  message: Welcome to Order Service
+  message: Welcome to Order Service, hehe
