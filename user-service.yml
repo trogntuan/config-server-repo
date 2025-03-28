@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-spring-cloud.c5igmqq2495t.ap-southeast-1.rds.amazonaws.com:3306/user_service
+    url: jdbc:mysql://db-trogntuan.c5igmqq2495t.ap-southeast-1.rds.amazonaws.com:3306/user_service
     username: seminar
     password: seminar01
 
