@@ -52,3 +52,6 @@ resilience4j:
     configs:
       default:
         timeout-duration: 5s
+
+ipt:
+  message: Welcome to Order Service
