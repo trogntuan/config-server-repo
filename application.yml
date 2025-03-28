@@ -13,7 +13,6 @@ eureka:
             defaultZone: http://${HOST_IP_ADDRESS:localhost}:9999/eureka/
     instance:
         prefer-ip-address: true
-        ip-address: ${HOST_IP_ADDRESS:localhost}:8082
 
 # Expose all the Actuator endpoints
 management:
