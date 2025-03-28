@@ -1,6 +1,12 @@
 spring:
   cloud:
     openfeign:
+      clients:
+        config:
+          default:
+            connect-timeout: 30000
+            read-timeout: 30000
+
       oauth2:
         enabled: true
 
