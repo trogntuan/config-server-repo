@@ -19,3 +19,6 @@ spring:
           predicates: Path=/user-service/**
           filters:
             - StripPrefix=1
+    loadbalancer:
+      configurations: same-instance-preference
+
