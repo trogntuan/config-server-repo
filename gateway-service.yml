@@ -21,4 +21,12 @@ spring:
             - StripPrefix=1
     loadbalancer:
       configurations: same-instance-preference
+      health-check:
+        enabled: true
+        initial-delay: 5s
+        interval: 3s
+        path:
+          default: /actuator/health
+          product-service: /actuator/health
+        refetch-instances: true
 
