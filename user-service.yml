@@ -13,3 +13,10 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
         current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${HOST_IP_ADDRESS:localhost}:9000
+          jwk-set-uri: http://${HOST_IP_ADDRESS:localhost}:9000/oauth2/jwks
