@@ -60,4 +60,4 @@ resilience4j:
         timeout-duration: 30s
 
 ipt:
-  message: Welcome to Order Service, hehe
+  message: Welcome to Order Service, huhu
