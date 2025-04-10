@@ -13,7 +13,6 @@ eureka:
             defaultZone: http://${HOST_IP_ADDRESS:localhost}:9999/eureka/
     instance:
         prefer-ip-address: true
-        ip-address=${HOST_IP_ADDRESS:localhost}:
 
 # Expose all the Actuator endpoints
 management:
@@ -38,7 +37,7 @@ logging:
         rollingpolicy:
             max-file-size: 2MB
     pattern:
-        console: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+        correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
     include-application-name: false
 
 
