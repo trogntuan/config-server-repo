@@ -7,6 +7,10 @@ spring:
           predicates: Path=/product-service/**
           filters:
             - StripPrefix=1
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+                fallbackUri: forward:/fallback
 
         - id: order-service-api
           uri: lb://order-service
@@ -19,9 +23,9 @@ spring:
           predicates: Path=/user-service/**
           filters:
             - StripPrefix=1
-    loadbalancer:
-#      configurations: same-instance-preference
-      configurations: com.ipt.gateway.configration.CustomLoadBalancerConfiguration
+#    loadbalancer:
+##      configurations: same-instance-preference
+#      configurations: com.ipt.gateway.configration.CustomLoadBalancerConfiguration
 #      health-check:
 #        enabled: true
 #        initial-delay: 5s
