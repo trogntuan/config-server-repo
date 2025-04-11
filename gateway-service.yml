@@ -7,10 +7,6 @@ spring:
           predicates: Path=/product-service/**
           filters:
             - StripPrefix=1
-            - name: CircuitBreaker
-              args:
-                name: myCircuitBreaker
-                fallbackUri: forward:/fallback
 
         - id: order-service-api
           uri: lb://order-service
