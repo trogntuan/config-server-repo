@@ -20,13 +20,14 @@ spring:
           filters:
             - StripPrefix=1
     loadbalancer:
-      configurations: same-instance-preference
-      health-check:
-        enabled: true
-        initial-delay: 5s
-        interval: 3s
-        path:
-          default: /actuator/health
-          product-service: /actuator/health
-        refetch-instances: true
+#      configurations: same-instance-preference
+      configurations: com.ipt.gateway.configration.CustomLoadBalancerConfiguration
+#      health-check:
+#        enabled: true
+#        initial-delay: 5s
+#        interval: 3s
+#        path:
+#          default: /actuator/health
+#          product-service: /actuator/health
+#        refetch-instances: true
 
